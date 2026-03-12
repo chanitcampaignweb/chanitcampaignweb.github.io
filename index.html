@@ -496,14 +496,12 @@
       position: relative;
       overflow: hidden;
     }
-    .family-banner::after {
-      content: '❝';
-      position: absolute; right: 2rem; top: 1rem;
-      font-size: 5rem;
-      color: rgba(255,255,255,0.1);
-      font-family: Georgia, serif;
-      line-height: 1;
+    .family-banner-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
+    .family-banner-inner > div { flex: 1; }
     .family-banner h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.3rem;
@@ -513,7 +511,16 @@
       font-size: 0.95rem;
       color: rgba(255,255,255,0.88);
       line-height: 1.7;
-      max-width: 480px;
+    }
+    .family-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      border: 3px solid rgba(255,255,255,0.3);
     }
 
     /* ─── Timeline / Experience strip ──────────────────────── */
@@ -912,7 +919,7 @@
       </div>
       <div class="hero-photo-wrap">
         <!-- Replace candidate.jpg with the actual photo filename -->
-        <img src="candidate.jpg" alt="Chanitta Nealy" class="hero-photo"
+        <img src="headshot.jpg" alt="Chanitta Nealy" class="hero-photo"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
         <div class="placeholder-photo" style="display:none;">
           <svg width="60" height="60" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
@@ -994,16 +1001,16 @@
       <p class="overline">Support the Campaign</p>
       <h2>Your Donation Fuels This Fight</h2>
       <p>Every dollar helps Chanitta reach more families, print more materials, and build the grassroots movement District 3 deserves. No amount is too small — every contribution matters.</p>
-      <!-- <div class="donate-amounts">
+      <div class="donate-amounts">
         <button class="donate-amount-btn">$10</button>
         <button class="donate-amount-btn">$25</button>
         <button class="donate-amount-btn active">$50</button>
         <button class="donate-amount-btn">$100</button>
         <button class="donate-amount-btn">$250</button>
         <button class="donate-amount-btn">Other</button>
-      </div> -->
-      <a href="https://secure.actblue.com/donate/chanitta-nealy-1" class="btn-donate-big" target="_blank" rel="noopener noreferrer">Donate Now →</a>
-      <p class="donate-disclaimer">Pitch in today to support Chanitta Nealy for Sumner County School Board - District 3. "Inclusivity, Unity, Safety, and Humanity"</p>
+      </div>
+      <a href="#contact" class="btn-donate-big">Donate Now →</a>
+      <p class="donate-disclaimer">Paid for by Chanitta Nealy for School Board District 3. Contributions are not tax-deductible.</p>
     </div>
   </section>
 
@@ -1015,7 +1022,7 @@
       <div class="meet-grid">
         <div>
           <div class="meet-photo-stack">
-            <img src="candidate.jpg" alt="Chanitta Nealy" class="meet-photo"
+            <img src="headshot.jpg" alt="Chanitta Nealy" class="meet-photo"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="placeholder-photo" style="display:none; aspect-ratio:3/4;">
               <svg width="60" height="60" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
@@ -1074,8 +1081,13 @@
           </div>
 
           <div class="family-banner">
-            <h3>A Family of Service</h3>
-            <p>Service is not simply a chapter in their story — it is the narrative thread that defines it. Fueled by purpose and passion, Chanitta stands ready to bring both light and advocacy in action to the Sumner County School Board.</p>
+            <div class="family-banner-inner">
+              <div>
+                <h3>A Family of Service</h3>
+                <p>Service is not simply a chapter in their story — it is the narrative thread that defines it. Fueled by purpose and passion, Chanitta stands ready to bring both light and advocacy in action to the Sumner County School Board.</p>
+              </div>
+              <img src="family.jpg" alt="The Nealy Family" class="family-photo" />
+            </div>
           </div>
         </div>
       </div>
@@ -1103,8 +1115,7 @@
           <div class="icon">💛</div>
           <h3>Donate</h3>
           <p>Your contribution fuels outreach, materials, and the grassroots momentum this campaign needs.</p>
-          <a href="https://secure.actblue.com/donate/chanitta-nealy-1" class="btn btn-gold btn-sm btn"target="_blank" rel="noopener noreferrer">Support the Campaign</a>
-
+          <a href="#contact" class="btn btn-gold btn-sm btn">Support the Campaign</a>
         </div>
         <div class="involve-card">
           <div class="icon">📬</div>
@@ -1161,18 +1172,14 @@
       <span class="footer-name">Chanitta Nealy · District 3</span>
     </div>
     <div class="social-links">
-      <a href="https://www.facebook.com/ChanittaNealy" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.facebook.com/profile.php?id=61588198413661" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
-      <a href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/chanittanealycampaign/" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </a>
-      <a href="#" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a href="#" aria-label="X (Twitter)" title="X (Twitter)" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
+    
+      
     </div>
     <ul class="footer-links">
       <li><a href="#why">Why I'm Running</a></li>
@@ -1182,13 +1189,13 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <p>Paid for by Chanitta Nealy for School Board District 3</p>
-    <p class="disclaimer">Sumner County, Tennessee &nbsp;·&nbsp; <a href="mailto:chanittanealycampaign@gmail.com">chanittanealycampaign@gmail.com</a></p>
+    <p class="disclaimer">Sumner County, Tennessee &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#d6b5beb7b8bfa2a2b7b8b3b7baafb5b7bba6b7bfb1b896b1bbb7bfbaf8b5b9bb"><span class="__cf_email__" data-cfemail="91f2f9f0fff8e5e5f0fff4f0fde8f2f0fce1f0f8f6ffd1f6fcf0f8fdbff2fefc">[email&#160;protected]</span></a></p>
   </footer>
 
   <!-- ══════════════════════════════════
        JAVASCRIPT
   ══════════════════════════════════════ -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Mobile nav toggle
     const hamburger = document.getElementById('hamburger');
     const navLinks  = document.getElementById('navLinks');
@@ -1248,7 +1255,7 @@
         `Message:\n${message || 'No message provided.'}`
       );
 
-      window.location.href = `mailto:e.johanssn@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:chanittanealycampaign@gmail.com?subject=${subject}&body=${body}`;
 
       form.style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
@@ -1269,6 +1276,6 @@
       revealObs.observe(el);
     });
   </script>
-
+ 
 </body>
 </html>
